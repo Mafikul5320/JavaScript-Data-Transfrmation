@@ -271,7 +271,37 @@ const Product = [
 // Slice ==> first 2
 // Map ==> Transform Object shape to {name : "Name"}
 
-const TopElectionProduct = Product.filter(item => item.category === "electronics").sort((a, b) =>b.rating - a.rating).slice(0,2).map(item=>  {
-   return { name: item.title}
+const TopElectionProduct = Product.filter(item => item.category === "electronics").sort((a, b) => b.rating - a.rating).slice(0, 2).map(item => {
+    return { name: item.title }
 })
-console.log(TopElectionProduct)
+// console.log(TopElectionProduct)
+
+
+const numbers = [5, 12, 8, 20, 3, 17, 9, 1, 14, 7, 11, 6, 2];
+const fruits = [
+    "Mango",
+    "Banana",
+    "Apple",
+    "Orange",
+    "Pineapple",
+    "Grapes",
+    "Guava",
+    "Strawberry",
+    "Watermelon",
+    "Papaya",
+    "Lemon",
+    "Kiwi",
+    "Cherry"
+];
+
+const nestedNumbers = [
+    [6, 7, 8, 9, [1, 2, 3, [10, 11, 12, [4, 5],]],],
+];
+const FlatArry = nestedNumbers.flat(Infinity)
+console.log(FlatArry)
+
+numbers.sort((a, b) => b - a);
+
+fruits.sort((a, b) => a.localeCompare(b))
+
+// console.log(fruits)
