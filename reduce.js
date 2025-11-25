@@ -21,3 +21,55 @@ const MinPrice = products.reduce((MinPrice, product) => {
 }, products[0]);
 
 // console.log(MinPrice);
+
+
+// LookUp Table 
+
+const lookuptable = products.reduce((table, post) => {
+
+    table[post.id] = post;
+
+    return table;
+}, {});
+
+// console.log(lookuptable);
+
+
+const survey = [
+
+    "A",
+    "B",
+    "D",
+    "C",
+    "B",
+    "A",
+    "E",
+    "B",
+    "A",
+    "D",
+    "E",
+    "A",
+    "C",
+    "A",
+    "E",
+    "E",
+    "B",
+    "C",
+];
+
+const count = survey.reduce((acc, survey) => {
+
+
+    if (acc[survey]) {
+        acc[survey] = acc[survey] + 1;
+    } else {
+        acc[survey] = 1;
+    }
+
+    return acc;
+
+
+}, {})
+
+
+console.log(count);
