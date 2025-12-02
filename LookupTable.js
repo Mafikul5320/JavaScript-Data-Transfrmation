@@ -42,4 +42,48 @@ const userWithPost = users.map((user) => {
 })
 
 
-console.log(JSON.stringify(userWithPost));
+// console.log(JSON.stringify(userWithPost));
+
+
+
+const events = [
+    { timestamp: "2025-11-10T08:03:00Z", type: "click" },
+    { timestamp: "2025-11-10T08:12:00Z", type: "scroll" },
+    { timestamp: "2025-11-10T08:28:00Z", type: "click" },
+    { timestamp: "2025-11-10T08:45:00Z", type: "hover" },
+    { timestamp: "2025-11-10T08:52:00Z", type: "click" },
+    { timestamp: "2025-11-10T09:10:00Z", type: "scroll" },
+    { timestamp: "2025-11-10T09:25:00Z", type: "click" },
+    { timestamp: "2025-11-10T09:40:00Z", type: "hover" },
+    { timestamp: "2025-11-10T09:55:00Z", type: "scroll" },
+    { timestamp: "2025-11-10T10:05:00Z", type: "click" }
+];
+
+
+// ? Output
+// binnedEvents = {
+//     "2025-11-10T08:00:00.000Z": { "total": 3 },
+//     "2025-11-10T08:30:00.000Z": { "total": 2 },
+//     "2025-11-10T09:00:00.000Z": { "total": 2 },
+//     "2025-11-10T09:30:00.000Z": { "total": 2 },
+//     "2025-11-10T10:00:00.000Z": { "total": 1 }
+// }
+
+
+const binnedEvents = events.reduce((table, event) => {
+
+
+    const { timestamp, type } = event;
+
+    if (!table[timestamp]) {
+        table[timestamp] = { total: 0 }
+    };
+
+    table[timestamp].total += type;
+
+    return table;
+
+
+}, {});
+
+console.log(binnedEvents)
